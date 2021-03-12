@@ -1,0 +1,17 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    width: 350px;
+    cursor: pointer;
+
+}
+
+.wrapper div {
+    padding-top: 10px;
+ }
+ 
+.wrapper img {
+   width: 100%;
+   height: auto;
+}

@@ -1,0 +1,17 @@
+.wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 2rem;
+}
+
+.wrapper div {
+    display: flex;
+    margin: 15px 10px;
+    padding-left: 18px;
+}
+
+.wrapper span {
+    margin: 15px 10px;
+    cursor: pointer;
+}

@@ -1,0 +1,38 @@
+.selectNumberPage {
+    display: flex;
+    justify-content: center;
+    width: 20px;
+    background-color: blue;
+    color: #fff;
+}
+
+.numberPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    color: blue;
+    cursor: pointer;
+    border: 1px solid #fff;
+
+}
+
+.numberPage:hover {
+    border: 1px solid blue;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    padding-left: 2rem;
+
+}
+
+.pagination div, .pagination span {
+    display: flex;
+    margin: 0px 5px;
+    cursor: pointer;
+        
+}

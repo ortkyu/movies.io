@@ -11,10 +11,13 @@ export function Paginator({
   setCurrentPage,
   total_pages,
   loadMovies,
+  setPaginator
 }) {
 
   let onPageChanged = (p) => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
     loadMovies(p)
+      setPaginator(true)
   };
 
   let portionSize = 5;

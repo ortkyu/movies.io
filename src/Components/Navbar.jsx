@@ -1,9 +1,10 @@
+import React from 'react'
 import style from'./navbar.module.css'
 
 
 //&certification=R&
 
-export const Navbar = ({setsortOption, loadMovies}) => {
+export const Navbar = React.memo(function Navbar({setsortOption, loadMovies}) {
 
     
     return(
@@ -20,4 +21,4 @@ export const Navbar = ({setsortOption, loadMovies}) => {
            <span onClick={()=>setsortOption('release_date.desc')}>&#8595;</span>
         </div>
     )
-}
+})

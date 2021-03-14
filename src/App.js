@@ -4,7 +4,6 @@ import { Header } from "./Components/Header";
 import { MovieList } from "./Components/MovieList";
 import { Navbar } from "./Components/Navbar";
 import { Paginator } from "./Components/Paginataor";
-import  _ from 'lodash'
 
 
 

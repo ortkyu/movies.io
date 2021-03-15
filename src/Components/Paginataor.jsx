@@ -1,25 +1,13 @@
-import style from'./paginator.module.css'
+import style from "./paginator.module.css";
 import { useState } from "react";
 
-
-
-
-
-export function Paginator({
-    sortOption,
-  page,
-  setnumberPage,
-  total_pages,
-  loadMovies,
-  setPaginator
-}) {
-
+export function Paginator({ page, setnumberPage, total_pages, loadMovies }) {
   let onPageChanged = (p) => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-    loadMovies(p)
-    setnumberPage(p)
-      setPaginator(true)
+    window.scrollTo(0,0);
+    loadMovies(p);
+    setnumberPage(p);
   };
+
 
   let portionSize = 5;
   let portionCount = Math.ceil(total_pages / portionSize);
@@ -27,11 +15,12 @@ export function Paginator({
   let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
   let rightPortionPageNumber = portionNumber * portionSize;
 
-  let pages = [];
-  for (let i = 1; i <= total_pages; i++) {
-    pages.push(i);
-  }
 
+      const pages = [];
+      for (let i = 1; i <= total_pages; i++) {
+        pages.push(i);
+      }
+      
 
   return (
     <div className={style.pagination}>
@@ -40,7 +29,7 @@ export function Paginator({
           <div
             onClick={() => {
               setPortionNumber(portionNumber - 1);
-              onPageChanged(leftPortionPageNumber-1)
+              onPageChanged(leftPortionPageNumber - 1);
             }}
           >
             пред
@@ -71,7 +60,7 @@ export function Paginator({
           <div
             onClick={() => {
               setPortionNumber(portionNumber + 1);
-              onPageChanged(rightPortionPageNumber+1)
+              onPageChanged(rightPortionPageNumber + 1);
             }}
           >
             след

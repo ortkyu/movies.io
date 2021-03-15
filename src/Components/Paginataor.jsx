@@ -8,7 +8,7 @@ import { useState } from "react";
 export function Paginator({
     sortOption,
   page,
-  setCurrentPage,
+  setnumberPage,
   total_pages,
   loadMovies,
   setPaginator
@@ -17,6 +17,7 @@ export function Paginator({
   let onPageChanged = (p) => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
     loadMovies(p)
+    setnumberPage(p)
       setPaginator(true)
   };
 

@@ -15,3 +15,8 @@
    width: 100%;
    height: auto;
 }
+
+.info {
+    display: flex;
+    justify-content: space-between;    
+}

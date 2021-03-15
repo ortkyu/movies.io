@@ -1,13 +1,17 @@
 import style from "./paginator.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export function Paginator({ page, setnumberPage, total_pages, loadMovies }) {
+export function Paginator({
+  page,
+  setnumberPage,
+  total_pages,
+  loadMoviesToPagination,
+}) {
   let onPageChanged = (p) => {
-    window.scrollTo(0,0);
-    loadMovies(p);
+    window.scrollTo(0, 0);
+    loadMoviesToPagination(p);
     setnumberPage(p);
   };
-
 
   let portionSize = 5;
   let portionCount = Math.ceil(total_pages / portionSize);
@@ -15,12 +19,19 @@ export function Paginator({ page, setnumberPage, total_pages, loadMovies }) {
   let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
   let rightPortionPageNumber = portionNumber * portionSize;
 
+  useEffect(() => {
+    if (page > rightPortionPageNumber) {
+      setPortionNumber(portionNumber + 1);
+    }
+    if (page < leftPortionPageNumber) {
+      setPortionNumber(portionNumber - 1);
+    }
+  }, [page]);
 
-      const pages = [];
-      for (let i = 1; i <= total_pages; i++) {
-        pages.push(i);
-      }
-      
+  const pages = [];
+  for (let i = 1; i <= total_pages; i++) {
+    pages.push(i);
+  }
 
   return (
     <div className={style.pagination}>

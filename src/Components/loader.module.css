@@ -1,0 +1,98 @@
+.wrapSpinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+@keyframes ldio-6i9qru22tim {
+  0% { transform: rotate(0) }
+  100% { transform: rotate(360deg) }
+}
+.loadSpin div { box-sizing: border-box!important }
+.loadSpin > div {
+  position: absolute;
+  width: 144px;
+  height: 144px;
+  top: 28px;
+  left: 28px;
+  border-radius: 50%;
+  border: 16px solid #000;
+  border-color: #585ae9 transparent #585ae9 transparent;
+  animation: ldio-6i9qru22tim 1s linear infinite;
+}
+
+.loadSpin > div:nth-child(2), .loadSpin > div:nth-child(4) {
+  width: 108px;
+  height: 108px;
+  top: 46px;
+  left: 46px;
+  animation: ldio-6i9qru22tim 1s linear infinite reverse;
+}
+.loadSpin > div:nth-child(2) {
+  border-color: transparent #585ae9 transparent #585ae9
+}
+.loadSpin > div:nth-child(3) { border-color: transparent }
+.loadSpin > div:nth-child(3) div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotate(45deg);
+}
+.loadSpin > div:nth-child(3) div:before, .loadSpin > div:nth-child(3) div:after { 
+  content: "";
+  display: block;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: -16px;
+  left: 48px;
+  background: #585ae9;
+  border-radius: 50%;
+  box-shadow: 0 128px 0 0  #585ae9;
+}
+.loadSpin > div:nth-child(3) div:after {
+  left: -16px;
+  top: 48px;
+  box-shadow: 128px 0 0 0 #585ae9;
+}
+
+.loadSpin > div:nth-child(4) { border-color: transparent; }
+.loadSpin > div:nth-child(4) div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotate(45deg);
+}
+.loadSpin > div:nth-child(4) div:before, .loadSpin > div:nth-child(4) div:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: -16px;
+  left: 30px;
+  background:  #585ae9;
+  border-radius: 50%;
+  box-shadow: 0 92px 0 0 #585ae9;
+}
+.loadSpin > div:nth-child(4) div:after {
+  left: -16px;
+  top: 30px;
+  box-shadow: 92px 0 0 0 #585ae9;
+}
+.loadingSpinner {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  overflow: hidden;
+}
+.loadSpin {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  transform-origin: 0 0; /* see note above */
+}
+.loadSpin div { box-sizing: content-box; }

@@ -1,17 +1,65 @@
 .wrapper {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 2rem;
+  width: 100%;
+  display: flex;
+  padding-left: 2rem;
+}
+.sort {
+  display: flex;
+  align-items: center;
 }
 
-.wrapper div {
-    display: flex;
-    margin: 15px 10px;
-    padding-left: 18px;
+.nameSort {
+  display: flex;
+}
+.nameSort div {
+  display: flex;
+  margin: 15px 10px;
+  padding-left: 18px;
+  align-items: center;
 }
 
-.wrapper span {
-    margin: 15px 10px;
-    cursor: pointer;
+.nameSort span {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 20px;
+  height: 20px;
+  margin: 15px 10px;
+  cursor: pointer;
+}
+
+.nameSortMobile {
+  display: none;
+}
+
+.mobile {
+  display: none;
+}
+
+.mobileHide {
+  display: none;
+}
+
+.active {
+  background-color: rgb(177, 177, 243);
+}
+
+@media all and (max-width: 700px) {
+  .wrapper {
+    display: none;
+  }
+  .sort {
+    display: flex;
+    margin: 10px;
+  }
+  .nameSort {
+    flex-direction: column;
+  }
+  .nameSort span {
+    padding-left: 20px;
+  }
+  .mobile {
+    display: flex;
+    flex-direction: column;
+  }
 }

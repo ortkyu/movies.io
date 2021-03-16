@@ -1,0 +1,19 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper div {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    width: 80%;
+    align-items: center; 
+}
+ 
+.wrapper img {
+   width: 100%;
+   height: auto;
+}

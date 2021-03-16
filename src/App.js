@@ -29,8 +29,13 @@ function App() {
   };
 
   useEffect(() => {
+    const data = localStorage.getItem("favorit");
+    data && setFavoriteMovie(JSON.parse(data));
+  }, []);
+
+  useEffect(() => {
     localStorage.setItem("favorit", JSON.stringify(idsFavoriteMovie));
-  }, [idsFavoriteMovie]);
+  }, [setFavorit, deleteFavorit]);
 
   const loadMoviesToPagination = (p = 1) => {
     fetch(
@@ -69,11 +74,6 @@ function App() {
     loadMoviesToPagination();
   }, [sortOption]);
 
-  useEffect(() => {
-    const data = localStorage.getItem("favorit");
-    data && setFavoriteMovie(JSON.parse(data));
-  }, []);
-
   if (!loading) {
     <Loader />;
   }
@@ -82,12 +82,12 @@ function App() {
     <BrowserRouter>
       <MovieContext.Provider
         value={{
+          sortOption,
           deleteFavorit,
           setFavorit,
           numberPage,
           idsFavoriteMovie,
           setFavoriteMovie,
-          numberPage,
           loadMoviesToPagination,
           loadMoviesToScroll,
           setnumberPage,

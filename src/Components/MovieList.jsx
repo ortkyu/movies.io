@@ -8,12 +8,7 @@ import "../App.css";
 
 export const MovieList = () => {
   const {
-    idsFavoriteMovie,
-    setFavoriteMovie,
     movies,
-    setnumberPage,
-    numberPage,
-    loadMoviesToPagination,
     loadMoviesToScroll,
   } = useContext(MovieContext);
 

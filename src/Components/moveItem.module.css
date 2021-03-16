@@ -20,3 +20,7 @@
     display: flex;
     justify-content: space-between;    
 }
+.wrapper a {
+    text-decoration: none;
+    color: #000 !important;
+    }

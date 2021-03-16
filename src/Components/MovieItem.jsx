@@ -1,6 +1,5 @@
 import style from "./moveItem.module.css";
-import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import { MovieContext } from "../App";
 import { useContext } from "react";
 
@@ -14,7 +13,7 @@ export const MovieItem = ({ movie }) => {
   return (
     <>
       <div className={style.wrapper}>
-        <Link to={"/movie/" + movie.id}>
+        <NavLink to={"/movie/" + movie.id}>
           <div>
             <img
               src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
@@ -24,7 +23,7 @@ export const MovieItem = ({ movie }) => {
           <div className={style.info}>
             <div>{movie.original_title}</div>
           </div>
-        </Link>
+        </NavLink>
         {favorite ? (
           <div onClick={() => deleteFavorit(movie.id)}>
             <svg

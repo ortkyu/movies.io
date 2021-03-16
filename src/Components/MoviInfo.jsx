@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router";
 import { Loader } from "./Loader";
-import style from "./moveItem.module.css";
+import style from "./moveInfo.module.css";
 import { MovieContext } from "../App";
 import { useContext } from "react";
 
@@ -26,10 +26,11 @@ export const MovieInfo = withRouter(({ match }) => {
       });
   }, []);
 
+  let favorite = idsFavoriteMovie.includes(movie.id);
+
   if (!movie) {
     <Loader />;
   }
-  let favorite = idsFavoriteMovie.includes(movie.id);
 
   return (
     <>

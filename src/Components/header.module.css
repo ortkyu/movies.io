@@ -10,3 +10,8 @@
 .wrapper h1 {
     padding-left: 3rem;
 }
+
+.wrapper a {
+text-decoration: none;
+color: #fff !important;
+}

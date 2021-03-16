@@ -5,9 +5,12 @@
 
 ## В проекте использованы следующие технологии:  
 
-JS
+JS  
+
 React.js(React hooks)  
-React-router-dom
+
+React-router-dom  
+
 REST API
 
 
@@ -33,8 +36,7 @@ yarn start
 
 В браузере переходим по адресу:  http://localhost:3000  
 
-
-![alt text](public/mov33.png )
 ![alt text](public/movie112.png )
+![alt text](public/mov33.png )
 
 

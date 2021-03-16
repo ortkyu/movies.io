@@ -5,6 +5,8 @@ import { MovieItem } from "./MovieItem";
 import "../App.css";
 
 export const MovieList = ({
+  idsFavoriteMovie,
+  setFavoriteMovie,
   movies,
   setnumberPage,
   numberPage,
@@ -33,7 +35,7 @@ export const MovieList = ({
           {movies.results &&
             movies.results.map((movie) => (
               <div key={movie.id}>
-                <MovieItem movie={movie} />
+                <MovieItem movie={movie} idsFavoriteMovie={idsFavoriteMovie} setFavoriteMovie={setFavoriteMovie}/>
               </div>
             ))}
         </div>

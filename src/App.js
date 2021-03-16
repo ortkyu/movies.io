@@ -18,6 +18,8 @@ function App() {
     total_pages: 0,
     total_results: 0,
   });
+  const [idsFavoriteMovie, setFavoriteMovie] = useState([]);
+
 
   const loadMoviesToPagination = (p = 1) => {
     fetch(
@@ -56,6 +58,11 @@ function App() {
     loadMoviesToPagination();
   }, [sortOption]);
 
+  useEffect(() => {
+    const data = localStorage.getItem("favorit")
+    data && setFavoriteMovie(JSON.parse(data))
+  }, []);
+
   if (!loading) {
     <Loader />
   }
@@ -70,6 +77,8 @@ function App() {
           path="/"
           render={() => (
             <MovieList
+            idsFavoriteMovie={idsFavoriteMovie}
+            setFavoriteMovie={setFavoriteMovie}
               numberPage={numberPage}
               loadMoviesToPagination={loadMoviesToPagination}
               loadMoviesToScroll={loadMoviesToScroll}

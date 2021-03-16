@@ -1,17 +1,23 @@
 import style from "./paginator.module.css";
 import { useEffect, useState } from "react";
+import { MovieContext } from "../App";
+import { useContext } from "react";
 
-export function Paginator({
-  page,
-  setnumberPage,
-  total_pages,
-  loadMoviesToPagination,
-}) {
-  let onPageChanged = (p) => {
+export function Paginator() {
+  const {
+    movies,
+    setnumberPage,
+    numberPage,
+    loadMoviesToPagination,
+  } = useContext(MovieContext);
+
+  const onPageChanged = (p) => {
     window.scrollTo(0, 0);
     loadMoviesToPagination(p);
     setnumberPage(p);
   };
+  let total_pages = movies.total_pages;
+  const page = numberPage;
 
   let portionSize = 5;
   let portionCount = Math.ceil(total_pages / portionSize);

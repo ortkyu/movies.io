@@ -7,6 +7,7 @@ import { Loader } from "./Components/Loader";
 import { MovieInfo } from "./Components/MoviInfo";
 import "./App.css";
 
+export const MovieContext = React.createContext();
 
 function App() {
   const [numberPage, setnumberPage] = useState(1);
@@ -20,6 +21,16 @@ function App() {
   });
   const [idsFavoriteMovie, setFavoriteMovie] = useState([]);
 
+  const setFavorit = (id) => {
+    setFavoriteMovie([...idsFavoriteMovie, id]);
+  };
+  const deleteFavorit = (id) => {
+    setFavoriteMovie(idsFavoriteMovie.filter((i) => i !== id));
+  };
+
+  useEffect(() => {
+    localStorage.setItem("favorit", JSON.stringify(idsFavoriteMovie));
+  }, [idsFavoriteMovie]);
 
   const loadMoviesToPagination = (p = 1) => {
     fetch(
@@ -59,36 +70,38 @@ function App() {
   }, [sortOption]);
 
   useEffect(() => {
-    const data = localStorage.getItem("favorit")
-    data && setFavoriteMovie(JSON.parse(data))
+    const data = localStorage.getItem("favorit");
+    data && setFavoriteMovie(JSON.parse(data));
   }, []);
 
   if (!loading) {
-    <Loader />
+    <Loader />;
   }
 
   return (
     <BrowserRouter>
-      <div>
-        <Header />
-        <Navbar setsortOption={setsortOption} />
-        <Route
-          exact
-          path="/"
-          render={() => (
-            <MovieList
-            idsFavoriteMovie={idsFavoriteMovie}
-            setFavoriteMovie={setFavoriteMovie}
-              numberPage={numberPage}
-              loadMoviesToPagination={loadMoviesToPagination}
-              loadMoviesToScroll={loadMoviesToScroll}
-              setnumberPage={setnumberPage}
-              movies={movies}
-            />
-          )}
-        />
-        <Route path="/movie/:id" component={MovieInfo} />
-      </div>
+      <MovieContext.Provider
+        value={{
+          deleteFavorit,
+          setFavorit,
+          numberPage,
+          idsFavoriteMovie,
+          setFavoriteMovie,
+          numberPage,
+          loadMoviesToPagination,
+          loadMoviesToScroll,
+          setnumberPage,
+          setsortOption,
+          movies,
+        }}
+      >
+        <div>
+          <Header />
+          <Navbar />
+          <Route exact path="/" component={MovieList} />
+          <Route path="/movie/:id" component={MovieInfo} />
+        </div>
+      </MovieContext.Provider>
     </BrowserRouter>
   );
 }

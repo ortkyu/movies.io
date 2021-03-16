@@ -1,18 +1,13 @@
 import style from "./moveItem.module.css";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import { MovieContext } from "../App";
+import { useContext } from "react";
 
-export const MovieItem = ({ movie, setFavoriteMovie, idsFavoriteMovie }) => {
-  const setFavorit = () => {
-    setFavoriteMovie([...idsFavoriteMovie, movie.id]);
-  };
-  const deleteFavorit = () => {
-    setFavoriteMovie(idsFavoriteMovie.filter((i) => i !== movie.id));
-  };
-
-  useEffect(() => {
-    localStorage.setItem("favorit", JSON.stringify(idsFavoriteMovie));
-  }, [idsFavoriteMovie]);
+export const MovieItem = ({ movie }) => {
+  const { setFavorit, deleteFavorit, idsFavoriteMovie } = useContext(
+    MovieContext
+  );
 
   let favorite = idsFavoriteMovie.includes(movie.id);
 

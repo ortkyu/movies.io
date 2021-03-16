@@ -1,7 +1,13 @@
 import React from "react";
 import style from "./navbar.module.css";
+import {MovieContext} from '../App'
+import { useContext } from "react";
 
-export const Navbar = ({ setsortOption }) => {
+
+export const Navbar = () => {
+  const {setsortOption} = useContext(MovieContext)
+
+
   return (
     <div className={style.wrapper}>
       <div>Сортировать по :</div>

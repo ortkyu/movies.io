@@ -12,6 +12,8 @@
   margin-left: auto;
   margin-right: auto;
   position: fixed;
+  background-color: #fff;
+  border-radius: 20px;
 }
 
 .body {

@@ -12,7 +12,7 @@ export const MovieContext = React.createContext();
 function App() {
   const [numberPage, setnumberPage] = useState(1);
   const [sortOption, setsortOption] = useState("popularity.desc");
-  const [genre, setGenre] = useState("35");
+  const [genre, setGenre] = useState(null);
 
   const [loading, setloading] = useState(false);
   const [movies, setMovies] = useState({
@@ -41,7 +41,9 @@ function App() {
 
   const loadMoviesToPagination = (p = 1) => {
     fetch(
-      `https://api.themoviedb.org/3/discover/movie?with_genres=${genre}&page=${p}&sort_by=${sortOption}&api_key=4237669ebd35e8010beee2f55fd45546`
+      genre
+        ? `https://api.themoviedb.org/3/discover/movie?with_genres=${genre}&page=${p}&sort_by=${sortOption}&api_key=4237669ebd35e8010beee2f55fd45546`
+        : `https://api.themoviedb.org/3/discover/movie?page=${p}&sort_by=${sortOption}&api_key=4237669ebd35e8010beee2f55fd45546`
     )
       .then((res) => res.json())
       .then((data) => {

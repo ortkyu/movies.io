@@ -1,5 +1,5 @@
 import style from "./paginator.module.css";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { MovieContext } from "../App";
 import { useContext } from "react";
 

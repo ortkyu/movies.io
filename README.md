@@ -34,6 +34,7 @@ yarn start
 В браузере переходим по адресу:  http://localhost:3000  
 
 
-![alt text](public/movie_4.png )
+![alt text](public/mov33.png )
+![alt text](public/movie112.png )
 
 
